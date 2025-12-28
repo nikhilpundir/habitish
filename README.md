@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Habitish - Modern Habit Tracker
 
-## Getting Started
+A beautiful, modern habit tracking application built with Next.js 16, React 19, and Tailwind CSS 4.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Daily Habit Tracking** - Mark habits as complete with a single tap
+- **Streak Tracking** - See your current streak for each habit
+- **Insights Dashboard** - Visualize your progress with charts and statistics
+- **Responsive Design** - Works seamlessly on mobile, tablet, and desktop
+- **Dark Mode Support** - Automatic dark mode based on system preferences
+- **Local Storage** - All data stored locally in your browser
+- **Modern UI** - Beautiful gradients, smooth animations, and intuitive interface
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 20+ installed
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository
+2. Navigate to the project directory:
+   ```bash
+   cd habitish
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## 📁 Project Structure
+
+```
+habitish/
+├── app/
+│   ├── components/          # React components
+│   │   ├── ui/             # Reusable UI components
+│   │   │   ├── Button.tsx
+│   │   │   └── Card.tsx
+│   │   ├── DailyQuote.tsx
+│   │   ├── HabitItem.tsx
+│   │   └── Navbar.tsx
+│   ├── hooks/              # Custom React hooks
+│   │   └── useHabits.tsx
+│   ├── lib/                # Utility functions
+│   │   ├── constants.ts
+│   │   ├── habit-utils.ts
+│   │   └── utils.ts
+│   ├── insights/           # Insights page
+│   ├── manage/             # Manage habits page
+│   ├── globals.css         # Global styles
+│   ├── layout.tsx          # Root layout
+│   ├── page.tsx            # Home page
+│   └── types.ts            # TypeScript types
+└── public/                 # Static assets
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Design Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Gradient Backgrounds** - Beautiful color gradients throughout the app
+- **Glass Morphism** - Frosted glass effect on cards and navigation
+- **Smooth Animations** - Fade-in and slide-up animations for better UX
+- **Responsive Layout** - Mobile-first design that scales to any screen size
+- **Accessible** - ARIA labels and semantic HTML for better accessibility
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+- **Framework:** Next.js 16 (App Router)
+- **UI Library:** React 19
+- **Styling:** Tailwind CSS 4
+- **Charts:** Recharts
+- **Icons:** Lucide React
+- **Date Handling:** date-fns
+- **TypeScript:** Full type safety
 
-To learn more about Next.js, take a look at the following resources:
+## 📱 Pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Today (Dashboard)
+- View all your habits for today
+- Quick completion toggle
+- Progress summary
+- Daily motivational quote
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Insights
+- 7-day activity chart
+- Overall statistics (total completions, longest streak, average rate)
+- Individual habit performance metrics
+- Visual progress bars
 
-## Deploy on Vercel
+### Manage
+- Add new habits with name and description
+- View all active habits
+- Delete habits
+- See total completion count per habit
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎯 Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. **Add a Habit:** Go to the Manage page and click "Add New Habit"
+2. **Track Daily:** On the Today page, tap any habit to mark it complete
+3. **View Progress:** Check the Insights page to see your statistics and trends
+4. **Build Streaks:** Complete habits daily to build and maintain streaks
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
