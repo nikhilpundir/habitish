@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
 import { useHabits } from "../hooks/useHabits";
-import { Trash2, Plus, Edit3 } from "lucide-react";
+import { Trash2, Plus, Download, Info, Github, Heart } from "lucide-react"; // Added Info, Github, Heart
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
-import { cn } from "../lib/utils";
+import { cn, downloadExcel } from "../lib/utils";
+import Link from "next/link"; // Import Link
 
 export default function ManagePage() {
   const { habits, addHabit, deleteHabit, mounted } = useHabits();
@@ -33,9 +34,19 @@ export default function ManagePage() {
     <div className="py-8 space-y-6">
       {/* Header */}
       <header className="space-y-2">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent">
-          Manage Habits
-        </h1>
+        <div className="flex items-center justify-between">
+          <h1 className="text-4xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent">
+            Manage Habits
+          </h1>
+          {/* Seamless About Button */}
+          <Link 
+            href="/about" 
+            className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 text-sm font-medium border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
+          >
+            <Info size={18} />
+            <span className="hidden sm:inline">About</span>
+          </Link>
+        </div>
         <p className="text-slate-600 dark:text-slate-400">
           Create and organize your daily habits
         </p>
@@ -153,6 +164,37 @@ export default function ManagePage() {
             ))}
           </div>
         )}
+      </div>
+
+      <div className="pt-8 space-y-8 border-t border-slate-200 dark:border-slate-800">
+         <Button
+          variant="secondary"
+          size="lg"
+          icon={Download}
+          onClick={() => downloadExcel(habits)}
+          className="w-full shadow-sm"
+        >
+          Export Data to Excel
+        </Button>
+
+        {/* Heartwarming Footer */}
+        <footer className="text-center space-y-4">
+          <div className="flex flex-col items-center gap-2">
+            <Heart size={20} className="text-red-500 animate-pulse" fill="currentColor" />
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              Support the developer
+            </p>
+            <a 
+              href="https://github.com/nikhilpundir" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-sm font-medium hover:opacity-90 transition-opacity"
+            >
+              <Github size={16} />
+              Star Habitish
+            </a>
+          </div>
+        </footer>
       </div>
     </div>
   );
