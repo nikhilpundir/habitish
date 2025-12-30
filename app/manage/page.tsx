@@ -1,24 +1,24 @@
-"use client";
-import { useState } from "react";
-import { useHabits } from "../hooks/useHabits";
-import { Trash2, Plus, Download, Info, Github, Heart } from "lucide-react"; // Added Info, Github, Heart
-import { Button } from "../components/ui/Button";
-import { Card } from "../components/ui/Card";
-import { cn, downloadExcel } from "../lib/utils";
-import Link from "next/link"; // Import Link
+'use client';
+import { useState } from 'react';
+import { useHabits } from '../hooks/useHabits';
+import { Trash2, Plus, Download, Info, Github, Heart } from 'lucide-react'; // Added Info, Github, Heart
+import { Button } from '../components/ui/Button';
+import { Card } from '../components/ui/Card';
+import { cn, downloadExcel } from '../lib/utils';
+import Link from 'next/link'; // Import Link
 
 export default function ManagePage() {
   const { habits, addHabit, deleteHabit, mounted } = useHabits();
-  const [name, setName] = useState("");
-  const [desc, setDesc] = useState("");
+  const [name, setName] = useState('');
+  const [desc, setDesc] = useState('');
   const [isFormVisible, setIsFormVisible] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!name.trim()) return;
     addHabit(name, desc);
-    setName("");
-    setDesc("");
+    setName('');
+    setDesc('');
     setIsFormVisible(false);
   };
 
@@ -39,17 +39,15 @@ export default function ManagePage() {
             Manage Habits
           </h1>
           {/* Seamless About Button */}
-          <Link 
-            href="/about" 
+          <Link
+            href="/about"
             className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-2 text-sm font-medium border border-transparent hover:border-slate-200 dark:hover:border-slate-700"
           >
             <Info size={18} />
             <span className="hidden sm:inline">About</span>
           </Link>
         </div>
-        <p className="text-slate-600 dark:text-slate-400">
-          Create and organize your daily habits
-        </p>
+        <p className="text-slate-600 dark:text-slate-400">Create and organize your daily habits</p>
       </header>
 
       {/* Add Habit Button/Form */}
@@ -101,8 +99,8 @@ export default function ManagePage() {
                 variant="secondary"
                 onClick={() => {
                   setIsFormVisible(false);
-                  setName("");
-                  setDesc("");
+                  setName('');
+                  setDesc('');
                 }}
               >
                 Cancel
@@ -131,7 +129,7 @@ export default function ManagePage() {
             {habits.map((habit, index) => (
               <Card
                 key={habit.id}
-                className={cn("p-4 group animate-slide-up")}
+                className={cn('p-4 group animate-slide-up')}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div className="flex items-start justify-between gap-4">
@@ -167,7 +165,7 @@ export default function ManagePage() {
       </div>
 
       <div className="pt-8 space-y-8 border-t border-slate-200 dark:border-slate-800">
-         <Button
+        <Button
           variant="secondary"
           size="lg"
           icon={Download}
@@ -181,12 +179,10 @@ export default function ManagePage() {
         <footer className="text-center space-y-4">
           <div className="flex flex-col items-center gap-2">
             <Heart size={20} className="text-red-500 animate-pulse" fill="currentColor" />
-            <p className="text-sm text-slate-500 dark:text-slate-400">
-              Support the developer
-            </p>
-            <a 
-              href="https://github.com/nikhilpundir" 
-              target="_blank" 
+            <p className="text-sm text-slate-500 dark:text-slate-400">Support the developer</p>
+            <a
+              href="https://github.com/nikhilpundir"
+              target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-sm font-medium hover:opacity-90 transition-opacity"
             >

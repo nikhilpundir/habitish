@@ -1,7 +1,7 @@
-import { QUOTES } from "../lib/constants";
-import { getDayOfYear } from "date-fns";
-import { Sparkles } from "lucide-react";
-import { Card } from "./ui/Card";
+import { QUOTES } from '../lib/constants';
+import { getDayOfYear } from 'date-fns';
+import { Sparkles } from 'lucide-react';
+import { Card } from './ui/Card';
 
 export default function DailyQuote() {
   const dayOfYear = getDayOfYear(new Date());

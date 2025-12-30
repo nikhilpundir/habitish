@@ -1,9 +1,9 @@
-"use client";
-import { Habit } from "../types";
-import { Check, Circle, Flame } from "lucide-react";
-import { Card } from "./ui/Card";
-import { calculateStreak } from "../lib/habit-utils";
-import { cn } from "../lib/utils";
+'use client';
+import { Habit } from '../types';
+import { Check, Circle, Flame } from 'lucide-react';
+import { Card } from './ui/Card';
+import { calculateStreak } from '../lib/habit-utils';
+import { cn } from '../lib/utils';
 
 interface Props {
   habit: Habit;
@@ -19,10 +19,10 @@ export default function HabitItem({ habit, date, onToggle }: Props) {
     <Card
       onClick={() => onToggle(habit.id, date)}
       className={cn(
-        "p-4 transition-all duration-300 animate-slide-up",
+        'p-4 transition-all duration-300 animate-slide-up',
         isCompleted
-          ? "bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 border-emerald-300 dark:border-emerald-700"
-          : "hover:border-slate-300 dark:hover:border-slate-600"
+          ? 'bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 border-emerald-300 dark:border-emerald-700'
+          : 'hover:border-slate-300 dark:hover:border-slate-600'
       )}
     >
       <div className="flex items-center justify-between">
@@ -30,10 +30,10 @@ export default function HabitItem({ habit, date, onToggle }: Props) {
           <div className="flex items-center gap-2 mb-1">
             <h3
               className={cn(
-                "font-semibold text-base truncate",
+                'font-semibold text-base truncate',
                 isCompleted
-                  ? "text-emerald-900 dark:text-emerald-100"
-                  : "text-slate-900 dark:text-slate-100"
+                  ? 'text-emerald-900 dark:text-emerald-100'
+                  : 'text-slate-900 dark:text-slate-100'
               )}
             >
               {habit.name}
@@ -56,10 +56,10 @@ export default function HabitItem({ habit, date, onToggle }: Props) {
 
         <div
           className={cn(
-            "ml-4 p-2.5 rounded-full transition-all duration-300 flex-shrink-0",
+            'ml-4 p-2.5 rounded-full transition-all duration-300 flex-shrink-0',
             isCompleted
-              ? "bg-gradient-to-br from-emerald-500 to-teal-500 text-white shadow-lg scale-110"
-              : "bg-slate-100 dark:bg-slate-700 text-slate-400 dark:text-slate-500"
+              ? 'bg-gradient-to-br from-emerald-500 to-teal-500 text-white shadow-lg scale-110'
+              : 'bg-slate-100 dark:bg-slate-700 text-slate-400 dark:text-slate-500'
           )}
         >
           {isCompleted ? <Check size={20} strokeWidth={3} /> : <Circle size={20} />}

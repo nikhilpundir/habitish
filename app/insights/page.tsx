@@ -1,10 +1,10 @@
-"use client";
-import { useHabits } from "../hooks/useHabits";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from "recharts";
-import { subDays, format } from "date-fns";
-import { Card } from "../components/ui/Card";
-import { TrendingUp, Flame, Target, Award } from "lucide-react";
-import { calculateStreak, getCompletionRate } from "../lib/habit-utils";
+'use client';
+import { useHabits } from '../hooks/useHabits';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import { subDays, format } from 'date-fns';
+import { Card } from '../components/ui/Card';
+import { TrendingUp, Flame, Target, Award } from 'lucide-react';
+import { calculateStreak, getCompletionRate } from '../lib/habit-utils';
 
 export default function InsightsPage() {
   const { habits, mounted } = useHabits();
@@ -20,30 +20,22 @@ export default function InsightsPage() {
   // Calculate Last 7 Days Activity
   const last7Days = Array.from({ length: 7 }).map((_, i) => {
     const d = subDays(new Date(), 6 - i);
-    const dateStr = format(d, "yyyy-MM-dd");
-    const completedCount = habits.filter((h) =>
-      h.completedDates.includes(dateStr)
-    ).length;
+    const dateStr = format(d, 'yyyy-MM-dd');
+    const completedCount = habits.filter((h) => h.completedDates.includes(dateStr)).length;
 
     return {
-      day: format(d, "EEE"),
+      day: format(d, 'EEE'),
       completed: completedCount,
       total: habits.length,
     };
   });
 
   // Calculate overall stats
-  const totalCompletions = habits.reduce(
-    (sum, h) => sum + h.completedDates.length,
-    0
-  );
+  const totalCompletions = habits.reduce((sum, h) => sum + h.completedDates.length, 0);
   const longestStreak = Math.max(...habits.map(calculateStreak), 0);
   const avgCompletionRate =
     habits.length > 0
-      ? Math.round(
-          habits.reduce((sum, h) => sum + getCompletionRate(h, 7), 0) /
-            habits.length
-        )
+      ? Math.round(habits.reduce((sum, h) => sum + getCompletionRate(h, 7), 0) / habits.length)
       : 0;
 
   return (
@@ -53,17 +45,13 @@ export default function InsightsPage() {
         <h1 className="text-4xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent">
           Insights
         </h1>
-        <p className="text-slate-600 dark:text-slate-400">
-          Track your progress and stay motivated
-        </p>
+        <p className="text-slate-600 dark:text-slate-400">Track your progress and stay motivated</p>
       </header>
 
       {habits.length === 0 ? (
         <Card className="p-12 text-center">
           <div className="mb-4 text-6xl">📊</div>
-          <p className="text-slate-500 dark:text-slate-400 mb-2">
-            No data to display yet
-          </p>
+          <p className="text-slate-500 dark:text-slate-400 mb-2">No data to display yet</p>
           <p className="text-sm text-slate-400 dark:text-slate-500">
             Start tracking habits to see your insights
           </p>
@@ -81,9 +69,7 @@ export default function InsightsPage() {
               <p className="text-2xl font-bold text-slate-900 dark:text-slate-100">
                 {totalCompletions}
               </p>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                Total Completions
-              </p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">Total Completions</p>
             </Card>
 
             <Card className="p-5">
@@ -95,9 +81,7 @@ export default function InsightsPage() {
               <p className="text-2xl font-bold text-slate-900 dark:text-slate-100">
                 {longestStreak}
               </p>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                Longest Streak
-              </p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">Longest Streak</p>
             </Card>
 
             <Card className="p-5">
@@ -109,9 +93,7 @@ export default function InsightsPage() {
               <p className="text-2xl font-bold text-slate-900 dark:text-slate-100">
                 {avgCompletionRate}%
               </p>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                7-Day Average
-              </p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">7-Day Average</p>
             </Card>
 
             <Card className="p-5">
@@ -123,9 +105,7 @@ export default function InsightsPage() {
               <p className="text-2xl font-bold text-slate-900 dark:text-slate-100">
                 {habits.length}
               </p>
-              <p className="text-sm text-slate-600 dark:text-slate-400">
-                Active Habits
-              </p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">Active Habits</p>
             </Card>
           </div>
 
@@ -144,30 +124,21 @@ export default function InsightsPage() {
                     axisLine={false}
                     stroke="#94a3b8"
                   />
-                  <YAxis
-                    fontSize={12}
-                    tickLine={false}
-                    axisLine={false}
-                    stroke="#94a3b8"
-                  />
+                  <YAxis fontSize={12} tickLine={false} axisLine={false} stroke="#94a3b8" />
                   <Tooltip
-                    cursor={{ fill: "transparent" }}
+                    cursor={{ fill: 'transparent' }}
                     contentStyle={{
-                      backgroundColor: "rgba(255, 255, 255, 0.95)",
-                      border: "1px solid #e2e8f0",
-                      borderRadius: "12px",
-                      padding: "8px 12px",
+                      backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                      border: '1px solid #e2e8f0',
+                      borderRadius: '12px',
+                      padding: '8px 12px',
                     }}
                   />
                   <Bar dataKey="completed" radius={[8, 8, 0, 0]}>
                     {last7Days.map((entry, index) => (
                       <Cell
                         key={`cell-${index}`}
-                        fill={
-                          index === 6
-                            ? "url(#colorGradient)"
-                            : "#cbd5e1"
-                        }
+                        fill={index === 6 ? 'url(#colorGradient)' : '#cbd5e1'}
                       />
                     ))}
                   </Bar>
@@ -206,7 +177,7 @@ export default function InsightsPage() {
                         <div className="flex items-center gap-1 px-2 py-1 bg-orange-100 dark:bg-orange-900/30 rounded-full">
                           <Flame size={14} className="text-orange-600 dark:text-orange-400" />
                           <span className="text-sm font-bold text-orange-700 dark:text-orange-300">
-                            {streak} day{streak !== 1 ? "s" : ""}
+                            {streak} day{streak !== 1 ? 's' : ''}
                           </span>
                         </div>
                       )}
@@ -215,9 +186,7 @@ export default function InsightsPage() {
                     <div className="flex items-center gap-4">
                       <div className="flex-1">
                         <div className="flex items-center justify-between text-sm mb-2">
-                          <span className="text-slate-600 dark:text-slate-400">
-                            7-Day Rate
-                          </span>
+                          <span className="text-slate-600 dark:text-slate-400">7-Day Rate</span>
                           <span className="font-semibold text-slate-900 dark:text-slate-100">
                             {completionRate}%
                           </span>
@@ -233,9 +202,7 @@ export default function InsightsPage() {
                         <p className="text-2xl font-bold text-slate-900 dark:text-slate-100">
                           {habit.completedDates.length}
                         </p>
-                        <p className="text-xs text-slate-600 dark:text-slate-400">
-                          Total
-                        </p>
+                        <p className="text-xs text-slate-600 dark:text-slate-400">Total</p>
                       </div>
                     </div>
                   </Card>

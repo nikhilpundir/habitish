@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from "react";
-import { Habit } from "../types";
+import { useState, useEffect } from 'react';
+import { Habit } from '../types';
 
 export function useHabits() {
   const [habits, setHabits] = useState<Habit[]>([]);
@@ -9,7 +9,7 @@ export function useHabits() {
 
   // Load from LocalStorage on mount
   useEffect(() => {
-    const stored = localStorage.getItem("my-habits");
+    const stored = localStorage.getItem('my-habits');
     if (stored) {
       setHabits(JSON.parse(stored));
     }
@@ -19,7 +19,7 @@ export function useHabits() {
   // Save to LocalStorage whenever habits change
   useEffect(() => {
     if (mounted) {
-      localStorage.setItem("my-habits", JSON.stringify(habits));
+      localStorage.setItem('my-habits', JSON.stringify(habits));
     }
   }, [habits, mounted]);
 

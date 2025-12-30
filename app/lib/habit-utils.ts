@@ -1,5 +1,5 @@
-import { Habit } from "../types";
-import { format, subDays, parseISO } from "date-fns";
+import { Habit } from '../types';
+import { format, subDays, parseISO } from 'date-fns';
 
 export function calculateStreak(habit: Habit): number {
   if (habit.completedDates.length === 0) return 0;
@@ -9,11 +9,11 @@ export function calculateStreak(habit: Habit): number {
     .sort((a, b) => b.getTime() - a.getTime());
 
   const today = new Date();
-  const todayStr = format(today, "yyyy-MM-dd");
-  const yesterdayStr = format(subDays(today, 1), "yyyy-MM-dd");
+  const todayStr = format(today, 'yyyy-MM-dd');
+  const yesterdayStr = format(subDays(today, 1), 'yyyy-MM-dd');
 
   // Check if the most recent completion is today or yesterday
-  const mostRecentStr = format(sortedDates[0], "yyyy-MM-dd");
+  const mostRecentStr = format(sortedDates[0], 'yyyy-MM-dd');
   if (mostRecentStr !== todayStr && mostRecentStr !== yesterdayStr) {
     return 0;
   }
@@ -22,8 +22,8 @@ export function calculateStreak(habit: Habit): number {
   let currentDate = sortedDates[0];
 
   for (const date of sortedDates) {
-    const dateStr = format(date, "yyyy-MM-dd");
-    const expectedStr = format(currentDate, "yyyy-MM-dd");
+    const dateStr = format(date, 'yyyy-MM-dd');
+    const expectedStr = format(currentDate, 'yyyy-MM-dd');
 
     if (dateStr === expectedStr) {
       streak++;
@@ -38,12 +38,10 @@ export function calculateStreak(habit: Habit): number {
 
 export function getCompletionRate(habit: Habit, days: number = 7): number {
   const recentDates = Array.from({ length: days }).map((_, i) =>
-    format(subDays(new Date(), i), "yyyy-MM-dd")
+    format(subDays(new Date(), i), 'yyyy-MM-dd')
   );
 
-  const completedInRange = recentDates.filter((date) =>
-    habit.completedDates.includes(date)
-  ).length;
+  const completedInRange = recentDates.filter((date) => habit.completedDates.includes(date)).length;
 
   return Math.round((completedInRange / days) * 100);
 }

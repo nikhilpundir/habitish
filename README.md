@@ -23,16 +23,19 @@ A beautiful, modern habit tracking application built with Next.js 16, React 19, 
 
 1. Clone the repository
 2. Navigate to the project directory:
+
    ```bash
    cd habitish
    ```
 
 3. Install dependencies:
+
    ```bash
    npm install
    ```
 
 4. Run the development server:
+
    ```bash
    npm run dev
    ```
@@ -87,18 +90,21 @@ habitish/
 ## 📱 Pages
 
 ### Today (Dashboard)
+
 - View all your habits for today
 - Quick completion toggle
 - Progress summary
 - Daily motivational quote
 
 ### Insights
+
 - 7-day activity chart
 - Overall statistics (total completions, longest streak, average rate)
 - Individual habit performance metrics
 - Visual progress bars
 
 ### Manage
+
 - Add new habits with name and description
 - View all active habits
 - Delete habits

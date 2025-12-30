@@ -1,14 +1,14 @@
-"use client";
-import { useHabits } from "./hooks/useHabits";
-import HabitItem from "./components/HabitItem";
-import DailyQuote from "./components/DailyQuote";
-import { format } from "date-fns";
-import { Calendar, TrendingUp } from "lucide-react";
-import Link from "next/link";
+'use client';
+import { useHabits } from './hooks/useHabits';
+import HabitItem from './components/HabitItem';
+import DailyQuote from './components/DailyQuote';
+import { format } from 'date-fns';
+import { Calendar, TrendingUp } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Dashboard() {
   const { habits, toggleHabit, mounted } = useHabits();
-  const today = format(new Date(), "yyyy-MM-dd");
+  const today = format(new Date(), 'yyyy-MM-dd');
   const completedToday = habits.filter((h) => h.completedDates.includes(today)).length;
   const totalHabits = habits.length;
 
@@ -26,7 +26,7 @@ export default function Dashboard() {
       <header className="space-y-2">
         <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
           <Calendar size={18} />
-          <p className="text-sm font-medium">{format(new Date(), "EEEE, MMMM do, yyyy")}</p>
+          <p className="text-sm font-medium">{format(new Date(), 'EEEE, MMMM do, yyyy')}</p>
         </div>
         <h1 className="text-4xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 dark:from-slate-100 dark:to-slate-300 bg-clip-text text-transparent">
           Good Day! 👋
@@ -45,7 +45,7 @@ export default function Dashboard() {
               <p className="text-blue-100 text-sm mt-1">
                 {totalHabits > 0
                   ? `${Math.round((completedToday / totalHabits) * 100)}% Complete`
-                  : "No habits yet"}
+                  : 'No habits yet'}
               </p>
             </div>
             <div className="p-4 bg-white/20 backdrop-blur-sm rounded-2xl">
@@ -61,9 +61,7 @@ export default function Dashboard() {
       {/* Habits Section */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">
-            Today's Habits
-          </h2>
+          <h2 className="text-xl font-bold text-slate-900 dark:text-slate-100">Today's Habits</h2>
           {habits.length === 0 && (
             <Link
               href="/manage"
@@ -85,12 +83,7 @@ export default function Dashboard() {
             </div>
           ) : (
             habits.map((habit) => (
-              <HabitItem
-                key={habit.id}
-                habit={habit}
-                date={today}
-                onToggle={toggleHabit}
-              />
+              <HabitItem key={habit.id} habit={habit} date={today} onToggle={toggleHabit} />
             ))
           )}
         </div>
