@@ -181,7 +181,7 @@ export default function ManagePage() {
             <Heart size={20} className="text-red-500 animate-pulse" fill="currentColor" />
             <p className="text-sm text-slate-500 dark:text-slate-400">Support the developer</p>
             <a
-              href="https://github.com/nikhilpundir"
+              href="https://github.com/nikhilpundir/habitish"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 text-sm font-medium hover:opacity-90 transition-opacity"
