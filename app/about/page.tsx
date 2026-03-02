@@ -13,6 +13,12 @@ import {
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 
+export const metadata = {
+  title: 'About Habitish - Privacy-First Habit Tracker',
+  description:
+    'Learn about Habitish, a privacy-focused habit tracking app with local storage, no accounts required, and Excel export. Built for speed, simplicity, and 100% user privacy.',
+};
+
 const features = [
   {
     icon: <ShieldCheck className="w-6 h-6 text-blue-500" />,

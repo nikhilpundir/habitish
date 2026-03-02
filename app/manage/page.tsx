@@ -7,6 +7,12 @@ import { Card } from '../components/ui/Card';
 import { cn, downloadExcel } from '../lib/utils';
 import Link from 'next/link'; // Import Link
 
+export const metadata = {
+  title: 'Manage Your Habits',
+  description:
+    'Create, edit, and organize your daily habits. Add new habits, delete old ones, and export your habit tracking data to Excel.',
+};
+
 export default function ManagePage() {
   const { habits, addHabit, deleteHabit, mounted } = useHabits();
   const [name, setName] = useState('');

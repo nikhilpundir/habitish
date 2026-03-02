@@ -1,6 +1,15 @@
 # Habitish - Modern Habit Tracker
 
-A beautiful, modern habit tracking application built with Next.js 16, React 19, and Tailwind CSS 4.
+A beautiful, modern habit tracking application built with Next.js 16, React 19, and Tailwind CSS 4. Build better habits, track your progress, and achieve your goals with an intuitive and responsive interface.
+
+## 🌟 Why Habitish?
+
+Habitish is a free, privacy-focused habit tracker that helps you build lasting habits through:
+- Simple daily tracking with one-tap completion
+- Visual progress insights and analytics
+- Streak tracking to keep you motivated
+- Beautiful, modern UI that works on any device
+- 100% local storage - your data stays private
 
 ## ✨ Features
 
@@ -116,6 +125,16 @@ habitish/
 2. **Track Daily:** On the Today page, tap any habit to mark it complete
 3. **View Progress:** Check the Insights page to see your statistics and trends
 4. **Build Streaks:** Complete habits daily to build and maintain streaks
+
+## 🔍 SEO & Discoverability
+
+Habitish is optimized for search engines with:
+- Comprehensive metadata and Open Graph tags
+- Structured data (JSON-LD) for rich search results
+- Dynamic sitemap generation
+- Mobile-friendly and responsive design
+- Fast loading times with Next.js optimization
+- PWA support for app-like experience
 
 ## 📄 License
 
