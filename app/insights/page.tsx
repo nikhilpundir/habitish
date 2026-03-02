@@ -6,12 +6,6 @@ import { Card } from '../components/ui/Card';
 import { TrendingUp, Flame, Target, Award } from 'lucide-react';
 import { calculateStreak, getCompletionRate } from '../lib/habit-utils';
 
-export const metadata = {
-  title: 'Insights & Progress Analytics',
-  description:
-    'View your habit tracking insights, progress charts, completion rates, and streaks. Analyze your performance with detailed statistics and visualizations.',
-};
-
 export default function InsightsPage() {
   const { habits, mounted } = useHabits();
 
